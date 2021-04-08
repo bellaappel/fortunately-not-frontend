@@ -2,6 +2,7 @@
 
 <head>
     <title>Fortunately Not</title>
+    <link rel="stylesheet" href="index.css"/>
 </head>
 
 <body>
@@ -10,25 +11,24 @@
         <p id="info">Ask The 8 Ball A Question</p>
         <input type="text" id="question" />
 
-        <div class="container">
-            <form class="add-ball-form"></form>
-            <h3>Create your own Magic8ball!</h3>
-            <input type="text" name="author" value="" placeholder="Enter your name..." class="input-text" />
-            <input type="text" name="name" value="" placeholder="Name of 8 ball..." class="input-text" />
-            <br>
-            <p> Positive Answers:</p>
+        <div id="new-form-container">
+        
+            <button id="new-ball-btn"> Create an 8Ball</button>
         </div>
 
         <div id="eight-ball" class="eight-ball">
             <div class="answer">
                 <p id="eight">8</p>
                 <p id="answer"></p>
+                <button id="new-question-btn">
+                    Shake
+                </button>
             </div>
         </div>
-        <button id="button">
-            Shake
-        </button>
+        
     </div>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/NewBallForm.js"></script>
 </body>
 
 </html>
