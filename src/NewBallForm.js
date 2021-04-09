@@ -47,8 +47,13 @@
     const allBalls = 'http://localhost:3000/eightballs'
 
     function getBalls(){
-        fetch(allBalls)
-
+        return fetch(allBalls)
+            .then(resp => resp.json())
+            .then(balls => {
+            balls.forEach(function(ball) {
+            renderBalls(ball)
+            });
+        });
     }
 
     function renderBalls(ball){
