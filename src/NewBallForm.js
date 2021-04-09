@@ -1,8 +1,9 @@
 
-// const addBtn = document.querySelector("#new-ball-btn");
-// addBtn.addEventListener("click", createBallForm)
+    const addBtn = document.querySelector("#new-ball-btn");
+    addBtn.addEventListener("click", createBallForm, {once: true});
+
    
-function createBallForm() {
+    function createBallForm() {
         
        const container = document.getElementById("new-form-container");
        const form = document.createElement("div");
@@ -41,7 +42,8 @@ function createBallForm() {
                 <button id="button">Create</button>
             </form>`;
         container.appendChild(form);
-   }
+    }
+   
 
     
 // invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true 
