@@ -39,12 +39,24 @@
                 <input type="text" name="ans18" value="" class="input-text" />
                 <input type="text" name="ans19" value="" class="input-text" />
                 <input type="text" name="ans20" value="" class="input-text" />
-                <button id="button">Create</button>
+                <button id="create-ball-button">Create</button>
             </form>`;
         container.appendChild(form);
     }
     
     const allBalls = 'http://localhost:3000/eightballs'
+
+    function getBalls(){
+        fetch(allBalls)
+
+    }
+
+    function renderBalls(ball){
+        let ballName = document.createElement("h2")
+        ballName.innerText = ball.name
+        let authorName = document.createElement("h2")
+        authorName.innerText = author.name
+    }
     
     function postBall(ball_data){
         fetch(allBalls,{
@@ -56,29 +68,33 @@
             body: JSON.stringify({
                 "name": ball_data.name.value,
                 "author": ball_data.author.value,
-                "ans1": ball_datat.ans1.value,
-                "ans2": ball_datat.ans2.value,
-                "ans3": ball_datat.ans3.value,
-                "ans4": ball_datat.ans4.value,
-                "ans5": ball_datat.ans5.value,
-                "ans6": ball_datat.ans6.value,
-                "ans7": ball_datat.ans7.value,
-                "ans8": ball_datat.ans8.value,
-                "ans9": ball_datat.ans9.value,
-                "ans10": ball_datat.ans10.value,
-                "ans11": ball_datat.ans11.value,
-                "ans12": ball_datat.ans12.value,
-                "ans13": ball_datat.ans13.value,
-                "ans14": ball_datat.ans14.value,
-                "ans15": ball_datat.ans15.value,
-                "ans16": ball_datat.ans16.value,
-                "ans17": ball_datat.ans17.value,
-                "ans18": ball_datat.ans18.value,
-                "ans19": ball_datat.ans19.value,
-                "ans20": ball_datat.ans20.value,
+                "ans1": ball_data.ans1.value,
+                "ans2": ball_data.ans2.value,
+                "ans3": ball_data.ans3.value,
+                "ans4": ball_data.ans4.value,
+                "ans5": ball_data.ans5.value,
+                "ans6": ball_data.ans6.value,
+                "ans7": ball_data.ans7.value,
+                "ans8": ball_data.ans8.value,
+                "ans9": ball_data.ans9.value,
+                "ans10": ball_data.ans10.value,
+                "ans11": ball_data.ans11.value,
+                "ans12": ball_data.ans12.value,
+                "ans13": ball_data.ans13.value,
+                "ans14": ball_data.ans14.value,
+                "ans15": ball_data.ans15.value,
+                "ans16": ball_data.ans16.value,
+                "ans17": ball_data.ans17.value,
+                "ans18": ball_data.ans18.value,
+                "ans19": ball_data.ans19.value,
+                "ans20": ball_data.ans20.value,
             })
         })
+        .then(res => res.json())
+        .then(obj_ball => renderBalls(obj_ball))
     };
 
+    const newBtn = document.querySelector("#create-ball-btn");
+    newBtn.addEventListener("click", postBall, {once:true});
     
 // invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true 
