@@ -43,7 +43,42 @@
             </form>`;
         container.appendChild(form);
     }
-   
+    
+    const allBalls = 'http://localhost:3000/eightballs'
+    
+    function postBall(ball_data){
+        fetch(allBalls,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': "application/json"
+            },
+            body: JSON.stringify({
+                "name": ball_data.name.value,
+                "author": ball_data.author.value,
+                "ans1": ball_datat.ans1.value,
+                "ans2": ball_datat.ans2.value,
+                "ans3": ball_datat.ans3.value,
+                "ans4": ball_datat.ans4.value,
+                "ans5": ball_datat.ans5.value,
+                "ans6": ball_datat.ans6.value,
+                "ans7": ball_datat.ans7.value,
+                "ans8": ball_datat.ans8.value,
+                "ans9": ball_datat.ans9.value,
+                "ans10": ball_datat.ans10.value,
+                "ans11": ball_datat.ans11.value,
+                "ans12": ball_datat.ans12.value,
+                "ans13": ball_datat.ans13.value,
+                "ans14": ball_datat.ans14.value,
+                "ans15": ball_datat.ans15.value,
+                "ans16": ball_datat.ans16.value,
+                "ans17": ball_datat.ans17.value,
+                "ans18": ball_datat.ans18.value,
+                "ans19": ball_datat.ans19.value,
+                "ans20": ball_datat.ans20.value,
+            })
+        })
+    };
 
     
 // invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true 
