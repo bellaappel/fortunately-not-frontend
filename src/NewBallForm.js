@@ -9,7 +9,7 @@
        const form = document.createElement("div");
        
            form.innerHTML =`
-            <form class= "add-ball-form">
+            <form id="form" class= "add-ball-form">
                 <h3>Create your own Magic8ball!</h3>
                 <input type="text" name="creator" value="" placeholder="Enter your name..." class="input-text" />
                 <input type="text" name="name" value="" placeholder="Name of 8 ball..." class="input-text" />
@@ -30,14 +30,25 @@
                 <input type="text" name="ans7" value="" class="input-text" />
                 <input type="text" name="ans8" value="" class="input-text" />
                 <input type="text" name="ans9" value="" class="input-text" />
-                <button id="create-ball-button">Create</button>
+                <button type="submit" id="create-ball-button">Create</button>
             </form>`;
-        container.appendChild(form);
+        container.appendChild(form)
+        console.log('fucking work')
+
+        
         
         const createBtn = document.getElementById("create-ball-button");
-        createBtn.addEventListener("click", postBall => postBall.preventDefault(), {once:true});
-        // build override default to not allow answer to be entered before all fields are completed 
+        createBtn.addEventListener("click", function(e) {
+            e.preventDefault()
+            const ballForm = document.getElementById("form")
+            postBall(ballForm)
+        })
     }
+        
+        
+        // {once:true});
+        // build override default to not allow answer to be entered before all fields are completed 
+    
     
     
 
@@ -55,8 +66,8 @@
     function renderBalls(ball){
         let ballName = document.createElement("h2")
         ballName.innerText = ball.name
-        let authorName = document.createElement("h2")
-        authorName.innerText = author.name
+        let creatorName = document.createElement("h2")
+        creatorName.innerText = creator.name
     }
     
     function postBall(ball_data){
@@ -68,7 +79,7 @@
             },
             body: JSON.stringify({
                 "name": ball_data.name.value,
-                "creator": ball_data.creator.value,
+                "creator_name": ball_data.creator.value,
                 "pos": [ball_data.ans1.value, ball_data.ans2.value, ball_data.ans3.value],
                 "neg": [ball_data.ans4.value, ball_data.ans5.value, ball_data.ans6.value],
                 "vague": [ball_data.ans7.value, ball_data.ans8.value, ball_data.ans9.value]
@@ -77,7 +88,7 @@
         .then(res => res.json())
         .then(obj_ball => renderBalls(obj_ball))
     };
-
+    
    
     
-// invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true 
+// invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true
