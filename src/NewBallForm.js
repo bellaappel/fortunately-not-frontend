@@ -42,12 +42,16 @@
                 <button id="create-ball-button">Create</button>
             </form>`;
         container.appendChild(form);
+        
+        const createBtn = document.getElementById("create-ball-button");
+        createBtn.addEventListener("click", postBall => postBall.preventDefault(), {once:true});
+        // build override default to not allow answer to be entered before all fields are completed 
     }
     
-    const allBalls = 'http://localhost:3000/eightballs'
+    
 
     function getBalls(){
-        return fetch(allBalls)
+        return fetch(`${BASEURL}/eightballs`)
             .then(resp => resp.json())
             .then(balls => {
             balls.forEach(function(ball) {
@@ -64,7 +68,7 @@
     }
     
     function postBall(ball_data){
-        fetch(allBalls,{
+        fetch(`${BASEURL}/eightballs`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -92,14 +96,13 @@
                 "ans17": ball_data.ans17.value,
                 "ans18": ball_data.ans18.value,
                 "ans19": ball_data.ans19.value,
-                "ans20": ball_data.ans20.value,
+                "ans20": ball_data.ans20.value
             })
         })
         .then(res => res.json())
         .then(obj_ball => renderBalls(obj_ball))
     };
 
-    const newBtn = document.querySelector("#create-ball-btn");
-    newBtn.addEventListener("click", postBall, {once:true});
+   
     
 // invoke method in constructor and also set this.formRendered to true then when button is added to close or submit to change boolean to false and display status at form button to hide if form is show is true 
