@@ -1,10 +1,10 @@
 const BASEURL = 'http://localhost:3000'
 
-document.addEventListener("DOMContentLoaded", ()=>{
+ function getBalls() {
+    return fetch(`${BASEURL}/eightballs`)
+    .then(resp => resp.json())
+    .then(resp => BallIndex.renderBalls(resp))     
+  };
 
-    const addBtn = document.querySelector("#new-ball-btn");
-    const ballForm = document.querySelector("#add-ball-form");
-    addBtn.addEventListener("click", () => {
-      
-  });
-})
+   const allBtn = document.getElementById("all-balls");
+    allBtn.addEventListener("click", getBalls, {once:true})
