@@ -33,7 +33,6 @@
                 <button type="submit" id="create-ball-button">Create</button>
             </form>`;
         container.appendChild(form)
-        console.log('fucking work')
 
         
         
@@ -62,12 +61,25 @@
         });
     }
     
-
+    
     function renderBalls(ball){
         let ballName = document.createElement("h2")
         ballName.innerText = ball.name
+
         let creatorName = document.createElement("h2")
-        creatorName.innerText = creator.name
+        creatorName.innerText = ball.creator_name
+
+        let useBtn = document.createElement('button')
+        useBtn.setAttribute('class', 'use-ball-btn')
+        useBtn.setAttribute('id', ball.id)
+        useBtn.innerText = "Select This Ball"
+        // ADD EVENT LISTENER ON THIS BUTTON
+
+        let divCard = document.createElement("div")
+        divCard.setAttribute('class', 'card')
+        divCard.append(ballName, creatorName, useBtn)
+        document.querySelector("#ball-collection").append(divCard)
+
     }
     
     function postBall(ball_data){
@@ -86,7 +98,7 @@
             })
         })
         .then(res => res.json())
-        .then(obj_ball => renderBalls(obj_ball))
+        .then(obj_ball => console.log(obj_ball))
     };
     
    
