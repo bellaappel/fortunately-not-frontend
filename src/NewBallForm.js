@@ -49,7 +49,8 @@
         // build override default to not allow answer to be entered before all fields are completed 
     
     
-    
+        const allBtn = document.getElementById("all-balls");
+        allBtn.addEventListener("click", getBalls, {once:true})
 
     function getBalls(){
         return fetch(`${BASEURL}/eightballs`)
