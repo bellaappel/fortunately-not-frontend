@@ -66,9 +66,9 @@ function postBall(ball_data){
             "vague": [ball_data.ans7.value, ball_data.ans8.value, ball_data.ans9.value]
         })
     })
-    // .then(res => res.json())
-    // .then(obj_ball => console.log(obj_ball))
-    // maybe show succesful creation and posting here
+    .then(res => res.json())
+    .then(obj_ball => window.alert("Eightball succesfully created!"))
+    
 };
     
    
