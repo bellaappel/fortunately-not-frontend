@@ -34,3 +34,4 @@
                    "Better not tell you now",
                    "Cannot predict now", 
                    "Concentrate and ask again"];
+

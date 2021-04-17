@@ -1,16 +1,14 @@
     class BallIndex {
         constructor(listBallObj) {
-            this.name = name;
+            this.listBallObj = listBallObj;
         }
     
-    
-     
-       static renderBalls = (listBallObj) => {
+       static renderBalls = (ball) => {
         let ballName = document.createElement("h3")
-        ballName.innerText = this.name
+        ballName.innerText = ball.name
 
         let creatorName = document.createElement("h3")
-        creatorName.innerText = this.creator.name
+        creatorName.innerText = ball.creator.name
 
         let useBtn = document.createElement('button')
         useBtn.setAttribute('class', 'use-ball-btn')

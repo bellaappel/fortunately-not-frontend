@@ -40,6 +40,11 @@ function createBallForm() {
     createBtn.addEventListener("click", function(e) {
         e.preventDefault()
         const ballForm = document.getElementById("form")
+        if( ballForm.style.display === "none") {
+            ballForm.style.display = "block";
+         } else {
+             ballForm.style.display = "none";
+         }
         postBall(ballForm)
     })
 }
