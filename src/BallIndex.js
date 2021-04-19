@@ -1,9 +1,10 @@
 
     
       function renderBalls(balls) {
+        const ballBag = document.querySelector("#ball-collection") 
+        ballBag.innerHTML = ``
         balls.forEach(ball => {
-              
-          
+            
             let ballName = document.createElement("h3")
             ballName.innerText = ball.name
 
@@ -23,13 +24,13 @@
             deleteBtn.innerText = "X"
             deleteBtn.addEventListener("click", function(e) {
                 deleteBallById(e.target.id)
-                
+
             }, {once:true})
 
             let divCard = document.createElement("div")
             divCard.setAttribute('class', 'card')
             divCard.append(ballName, creatorName, useBtn, deleteBtn)
-            document.querySelector("#ball-collection").append(divCard)
+            ballBag.append(divCard)
         });
     }
         
@@ -40,8 +41,10 @@
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             }
-        }
-    )}
+        })
+            .then(resp => resp.json())
+            .then(resp => renderBalls(resp)) 
+    }
 
     function playBall(){
 
