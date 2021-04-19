@@ -20,9 +20,10 @@
             let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute('class', 'delete-ball-button')
             deleteBtn.setAttribute('id', ball.id)
-            deleteBtn.innerText = "x"
-            deleteBtn.addEventListener("click", function(e){
-                e.target.getAtrribute("id")
+            deleteBtn.innerText = "X"
+            deleteBtn.addEventListener("click", function(e) {
+                deleteBallById(e.target.id)
+                
             }, {once:true})
 
             let divCard = document.createElement("div")
@@ -32,8 +33,8 @@
         });
     }
         
-    function deleteBall(){
-        fetch("http://localhost:3000/eightballs/${ball.id}", {
+    function deleteBallById(id){
+        fetch(`http://localhost:3000/eightballs/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
