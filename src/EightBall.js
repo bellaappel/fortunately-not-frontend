@@ -7,20 +7,17 @@ class Eightball{
     this.question = document.getElementById("question");
     this.eightball.addEventListener("click", handleShake())
   }
-
-     
-        handleShake() {
-          this.handleShake
-         if (question.value.length < 1) {
-           alert('Enter a valid question!');
-         } else {
-           eight.innerText = "";
-           let num = Math.floor(Math.random() * Math.floor(answers.length));
-           answer.innerText = answers[num];
-         }
-        }
-       
-       
+  
+  handleShake() {
+    this.handleShake
+    if (question.value.length < 1) {
+      alert('Enter a valid question!');
+    } else {
+      eight.innerText = "";
+      let num = Math.floor(Math.random() * Math.floor(answers.length));
+      answer.innerText = answers[num];
+    }
+  }    
 }
  
  

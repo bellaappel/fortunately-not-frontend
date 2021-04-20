@@ -15,7 +15,9 @@
             useBtn.setAttribute('class', 'use-ball-btn')
             useBtn.setAttribute('id', ball.id)
             useBtn.innerText = "Select This Ball"
-            useBtn.addEventListener("click", playBall, {once:true})
+            useBtn.addEventListener("click", function(e){
+                playBallById(e.target.id)
+            }, {once:true})
             // ADD EVENT LISTENER ON THIS BUTTON  
 
             let deleteBtn = document.createElement('button')
@@ -46,7 +48,9 @@
             .then(resp => renderBalls(resp)) 
     }
 
-    function playBall(){
-
-    }
+    function playBallById(id){
+        fetch(`${BASEURL}/eightballs/${id}`)
+        .then(resp => resp.json())
+        .then(resp => console.log(resp))
+        }
   
