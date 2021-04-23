@@ -9,7 +9,5 @@ const BASEURL = 'http://localhost:3000'
    const allBtn = document.getElementById("all-balls");
     allBtn.addEventListener("click", getBalls, {once:true})
 
-  
-window.onload = function() {
-  Eightball.new
-}
+const eb = new EightBall()
+eb.logBall()
