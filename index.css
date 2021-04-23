@@ -1,5 +1,5 @@
  #content { 
-     width: 800px; 
+     width: auto; 
      margin: 0 auto; 
      margin-top: 50px; 
      border: 1px dotted black;       
@@ -39,4 +39,19 @@
       width: 50%;
       height: 50%;
       margin: 25% auto;
+    }
+
+    div#ball-collection {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    div.card {
+      background-color: black;
+      flex: 0 1 24%;
+    }
+
+    h3{
+      color: white;
     }
