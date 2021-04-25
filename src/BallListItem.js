@@ -1,12 +1,18 @@
 class BallListItem {
-    constructor(obj) {
+    constructor(obj, eb) {
         this.name = obj.name
         this.id = obj.id
         this.creator = obj.creator
-        this.pos = obj.pos
-        this.neg = obj.neg
-        this.vague = obj.vague
+        this.answersArray = [...obj.pos]
+        this.eb = eb
+        console.log(typeof obj.pos)
     }
+
+//    look at how to spread arrays
+
+
+
+
     renderBallListItem() {
         const ballBag = document.querySelector("#ball-collection") 
         let ballName = document.createElement("h3")
@@ -20,7 +26,8 @@ class BallListItem {
         useBtn.setAttribute('id', this.id)
         useBtn.innerText = "Select This Ball"
         useBtn.addEventListener("click", function(e){
-            playBallById(e.target.id)
+            console.log(this.answersArray)
+            // eb.readyEightBall(this.answersArray)
         }, {once:true})
             
 
@@ -37,6 +44,6 @@ class BallListItem {
         divCard.setAttribute('class', 'card')
         divCard.append(ballName, creatorName, useBtn, deleteBtn)
         ballBag.append(divCard)
+        
     }
-
 }

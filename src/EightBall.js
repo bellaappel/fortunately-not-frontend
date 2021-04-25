@@ -9,13 +9,12 @@ class EightBall{
   
   }
 
-  readyEightBall(){
-    console.log("test")
-  }
-  
-  logBall(){
+  readyEightBall(answersArray){
+   this.answers = answersArray
     console.log(this)
   }
+  
+ 
   
   handleShake() {
     console.log("test")
