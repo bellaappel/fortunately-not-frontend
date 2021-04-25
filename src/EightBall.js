@@ -11,7 +11,7 @@ class EightBall{
 
   readyEightBall(answersArray){
    this.answers = answersArray
-    console.log(this)
+   console.log(this.answers)
   }
   
  

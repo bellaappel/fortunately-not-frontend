@@ -3,9 +3,9 @@ class BallListItem {
         this.name = obj.name
         this.id = obj.id
         this.creator = obj.creator
-        this.answersArray = [...obj.pos]
+        this.answersArray = [...obj.pos, ...obj.neg, ...obj.vague]
         this.eb = eb
-        console.log(typeof obj.pos)
+        console.log(this.answersArray)
     }
 
 //    look at how to spread arrays
@@ -25,9 +25,8 @@ class BallListItem {
         useBtn.setAttribute('class', 'use-ball-btn')
         useBtn.setAttribute('id', this.id)
         useBtn.innerText = "Select This Ball"
-        useBtn.addEventListener("click", function(e){
-            console.log(this.answersArray)
-            // eb.readyEightBall(this.answersArray)
+        useBtn.addEventListener("click", () => {
+            eb.readyEightBall(this.answersArray)
         }, {once:true})
             
 
