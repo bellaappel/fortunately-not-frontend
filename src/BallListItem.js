@@ -5,13 +5,7 @@ class BallListItem {
         this.creator = obj.creator
         this.answersArray = [...obj.pos, ...obj.neg, ...obj.vague]
         this.eb = eb
-        console.log(this.answersArray)
     }
-
-//    look at how to spread arrays
-
-
-
 
     renderBallListItem() {
         const ballBag = document.querySelector("#ball-collection") 
